@@ -28,7 +28,7 @@ const itemVariants: Variants = {
 
 const AboutSection: React.FC = () => {
     return (
-        <section className="bg-white py-20 sm:py-28">
+        <section id="about" className="bg-white py-20 sm:py-28">
             <motion.div 
                 className="container mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
                 initial="hidden"

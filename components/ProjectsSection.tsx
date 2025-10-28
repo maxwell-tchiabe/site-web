@@ -68,7 +68,7 @@ const ProjectsSection: React.FC = () => {
     };
 
     return (
-        <section className="bg-[#f0f4ff] py-20 sm:py-28">
+        <section id="projects" className="bg-[#f0f4ff] py-20 sm:py-28">
             <motion.div 
                 className="container mx-auto px-6 lg:px-8 text-center"
                 initial="hidden"

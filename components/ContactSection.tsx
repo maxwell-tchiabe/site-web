@@ -21,7 +21,7 @@ const itemVariants: Variants = {
 
 const ContactSection: React.FC = () => {
     return (
-        <section className="bg-white py-20 sm:py-28">
+        <section id="contact" className="bg-white py-20 sm:py-28">
             <motion.div 
                 className="container mx-auto px-6 lg:px-8"
                 initial="hidden"

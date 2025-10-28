@@ -3,7 +3,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Asterisk, Menu, X } from './Icons';
 
-const navLinks = ["Home", "About", "Projects", "Contact", "Blog"];
+const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" }
+];
 
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,13 +33,13 @@ const Header: React.FC = () => {
                 <nav className="hidden lg:flex items-center gap-6">
                     {navLinks.map((link, i) => (
                          <motion.a 
-                            key={link}
+                            key={link.name}
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 * i }}
-                            href="#" 
+                            href={link.href} 
                             className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
-                            {link}
+                            {link.name}
                          </motion.a>
                     ))}
                 </nav>
@@ -67,7 +72,7 @@ const Header: React.FC = () => {
                     >
                         <nav className="flex flex-col gap-4">
                             {navLinks.map((link) => (
-                                <a key={link} href="#" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors block text-center py-2">{link}</a>
+                                <a key={link.name} href={link.href} className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors block text-center py-2">{link.name}</a>
                             ))}
                             <button className="sm:hidden bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm w-full">
                                 Book a Discovery Call

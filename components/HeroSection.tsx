@@ -85,7 +85,7 @@ const ServiceCard: React.FC = () => (
 
 const HeroSection: React.FC = () => {
     return (
-        <section className="mt-8">
+        <section id="home" className="mt-8">
             <div className="relative bg-gradient-to-br from-[#7C87F7] to-[#4E58C7] rounded-3xl lg:rounded-[50px] p-6 sm:p-10 lg:p-16 overflow-hidden">
                 {/* Grid background */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,theme(colors.white/0.05)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.white/0.05)_1px,transparent_1px)] bg-[size:40px_40px] opacity-50"></div>
