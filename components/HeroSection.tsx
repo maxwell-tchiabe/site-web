@@ -1,7 +1,9 @@
 import React from 'react';
 // FIX: Add Variants to import from framer-motion to fix type errors.
 import { motion, Variants } from 'framer-motion';
+import { socialLinks } from '../constants';
 import { Phone, Play, Linkedin, Instagram, TwitterX, PhoneOff, MicOff, Share } from './Icons';
+import { s } from 'framer-motion/client';
 
 // Animation variants for Framer Motion
 // FIX: Add Variants type annotation for type safety.
@@ -49,24 +51,6 @@ const floatingVariants = (delay = 0): Variants => ({
     },
 });
 
-// Helper Components defined outside the main component to prevent re-renders
-const DoctorsCard: React.FC = () => (
-    <motion.div variants={{...itemVariants, ...floatingVariants(0.5)}} className="absolute bottom-16 -left-12 md:bottom-24 md:-left-16 lg:bottom-16 lg:-left-20 xl:-left-10 w-60">
-        <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-lg">
-            <div className="flex items-center">
-                <div className="flex -space-x-3">
-                    {[10, 25, 30, 45, 50].map((imgId) => (
-                         <img key={imgId} className="w-10 h-10 rounded-full border-2 border-white object-cover" src={`https://i.pravatar.cc/40?img=${imgId}`} alt={`Doctor ${imgId}`} />
-                    ))}
-                    <div className="w-10 h-10 rounded-full bg-indigo-500 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
-                        +
-                    </div>
-                </div>
-            </div>
-            <p className="text-xs text-gray-600 mt-2 font-medium">More than <span className="font-bold text-gray-800">150+ experienced doctors</span> around the world</p>
-        </div>
-    </motion.div>
-);
 
 const ServiceCard: React.FC = () => (
      <motion.div variants={{...itemVariants, ...floatingVariants(0.8)}} className="absolute top-1/2 -translate-y-1/2 -left-8 md:-left-12 w-48">
@@ -82,6 +66,12 @@ const ServiceCard: React.FC = () => (
     </motion.div>
 );
 
+ const scrollToSection = (id: string) => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
 const HeroSection: React.FC = () => {
     return (
@@ -105,38 +95,40 @@ const HeroSection: React.FC = () => {
                             Loic Maxwell Tchiabe 
                         </motion.h1>
                         <motion.p variants={itemVariants} className="mt-6 text-base sm:text-lg text-white/80 max-w-lg mx-auto lg:mx-0">
-                            I build modern, responsive, and high-performance web applications. Let's turn your ideas into reality.                        </motion.p>
+                            I build modern, responsive, and high-performance web, mobile and AI applications. Let's turn your ideas into reality.                        </motion.p>
                         <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <button className="bg-transparent border-2 border-white/80 text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition-colors duration-300">
+                            <button onClick={() => scrollToSection("projects")} className="bg-transparent border-2 border-white/80 text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition-colors duration-300">
                                 See My Work
                             </button>
-                            <button className="bg-gray-900 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-300">
-                                Book a Discovery Call
+                            <button onClick={() => scrollToSection("contact")} className="bg-gray-900 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-300">
+                                Get in Touch
                             </button>
                         </motion.div>
                     </div>
 
-                    {/* Right Content - Doctor Image and floating cards */}
+                    {/* Right Content - maxwell Image and floating cards */}
                     <div className="relative h-[450px] sm:h-[550px] lg:h-full flex items-end justify-center">
                         <motion.div 
-                            className="absolute top-4 right-1 flex gap-2 "
+                            className="absolute top-4 right-1 flex gap-2 z-20"
                             variants={itemVariants}
                         >
-                            {[Linkedin, Instagram, TwitterX].map((Icon, index) => (
+                            {socialLinks.map((social, index) => (
                                 <motion.a 
                                     key={index} 
-                                    href="#" 
+                                    href={social.href} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    whileHover={{ scale: 1.2, y: -3 }}
                                     className="bg-white/20 p-2.5 rounded-full text-white hover:bg-white/30"
-                                    whileHover={{scale: 1.1}}
                                     transition={{type: "spring", stiffness: 300}}
                                 >
-                                    <Icon className="w-5 h-5" />
+                                    <social.icon className="w-5 h-5" />
                                 </motion.a>
                             ))}
                         </motion.div>
 
                         <motion.div 
-                            className="relative w-full h-full"
+                            className="relative w-full h-full z-10"
                             variants={imageVariants}
                         >
                             <img 

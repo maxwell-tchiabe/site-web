@@ -13,6 +13,13 @@ const navLinks = [
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const scrollToSection = (id: string) => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <header className="w-full bg-white/80 backdrop-blur-md rounded-full shadow-md py-3 px-6 sticky top-4 z-50">
             <div className="flex items-center justify-between">
@@ -32,15 +39,15 @@ const Header: React.FC = () => {
 
                 <nav className="hidden lg:flex items-center gap-6">
                     {navLinks.map((link, i) => (
-                         <motion.a 
+                         <motion.button
                             key={link.name}
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 * i }}
-                            href={link.href} 
-                            className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
+                            onClick={() => scrollToSection(link.href.substring(1))}
+                            className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors bg-transparent">
                             {link.name}
-                         </motion.a>
+                         </motion.button>
                     ))}
                 </nav>
 
@@ -51,6 +58,7 @@ const Header: React.FC = () => {
                         transition={{ duration: 0.5, delay: 0.5 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={() => scrollToSection('coaching')}
                         className="hidden sm:block bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm">
                         Book a Discovery Call   
                     </motion.button>
@@ -72,9 +80,9 @@ const Header: React.FC = () => {
                     >
                         <nav className="flex flex-col gap-4">
                             {navLinks.map((link) => (
-                                <a key={link.name} href={link.href} className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors block text-center py-2">{link.name}</a>
+                                <button key={link.name} onClick={() => scrollToSection(link.href.substring(1))} className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors block text-center py-2 bg-transparent">{link.name}</button>
                             ))}
-                            <button className="sm:hidden bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm w-full">
+                            <button onClick={() => scrollToSection('coaching')} className="sm:hidden bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm w-full">
                                 Book a Discovery Call
                             </button>
                         </nav>

@@ -29,7 +29,7 @@ const itemVariants: Variants = {
 
 const CoachingSection: React.FC = () => {
     return (
-        <section className="bg-white py-20 sm:py-28">
+        <section id="coaching" className="bg-white py-20 sm:py-28">
             <motion.div 
                 className="container mx-auto px-6 lg:px-8"
                 initial="hidden"
@@ -90,11 +90,12 @@ const CoachingSection: React.FC = () => {
                     >
                         <h3 className="text-2xl font-bold mb-3">1-on-1 Coaching</h3>
                         <p className="text-gray-300 mb-6 flex-grow">Get dedicated, personalized guidance to accelerate your career growth.</p>
-                        <button
+                        <a 
+                            href="#"
                             className="bg-indigo-500 text-white font-semibold py-3 px-8 rounded-full hover:bg-indigo-600 transition-all duration-300 transform hover:scale-105 w-full"
                         >
                             Book a Discovery Call
-                        </button>
+                        </a>
                     </motion.div>
 
                     {/* Free Option Card */}
@@ -104,11 +105,12 @@ const CoachingSection: React.FC = () => {
                     >
                         <h3 className="text-2xl font-bold mb-3">Join the Community</h3>
                         <p className="text-gray-600 mb-6 flex-grow">Access free resources, join discussions, and get weekly tips in my newsletter.</p>
-                        <button
+                        <a 
+                            href="https://maxwelltbtech.substack.com/embed"
                             className="bg-gray-800 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 w-full"
                         >
                             Get Free Access
-                        </button>
+                        </a>
                     </motion.div>
                 </div>
 

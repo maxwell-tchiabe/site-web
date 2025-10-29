@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Linkedin, GitHub, Instagram } from './Icons';
+import { socialLinks } from '../constants';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -9,6 +9,8 @@ const containerVariants: Variants = {
         transition: { staggerChildren: 0.1, delayChildren: 0.2 },
     },
 };
+
+
 
 const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -47,15 +49,24 @@ const ContactSection: React.FC = () => {
                         <motion.div variants={itemVariants}>
                             <h3 className="text-xl font-semibold text-gray-800 mb-2">Contact Details</h3>
                             <a href="mailto:hello@medme.com" className="text-indigo-600 hover:text-indigo-800 transition-colors">
-                                hello@medme.com
+                                maxwelltb4@gmail.com
                             </a>
                         </motion.div>
                         <motion.div variants={itemVariants}>
                             <h3 className="text-xl font-semibold text-gray-800 mb-3">Follow Me</h3>
                             <div className="flex items-center gap-4">
-                                <motion.a href="#" whileHover={{ scale: 1.1, y: -2 }} className="text-gray-600 hover:text-indigo-600"><Linkedin className="w-6 h-6" /></motion.a>
-                                <motion.a href="#" whileHover={{ scale: 1.1, y: -2 }} className="text-gray-600 hover:text-indigo-600"><GitHub className="w-6 h-6" /></motion.a>
-                                <motion.a href="#" whileHover={{ scale: 1.1, y: -2 }} className="text-gray-600 hover:text-indigo-600"><Instagram className="w-6 h-6" /></motion.a>
+                              {socialLinks.map((social, index) => (
+                                <motion.a 
+                                    key={index} 
+                                    href={social.href} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    whileHover={{ scale: 1.2, y: -3 }}
+                                    className="text-gray-400 hover:text-indigo-600 transition-colors"
+                                >
+                                    <social.icon className="w-5 h-5" />
+                                </motion.a>
+                            ))}
                             </div>
                         </motion.div>
                     </motion.div>

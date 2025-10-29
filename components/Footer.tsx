@@ -1,12 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, GitHub, Instagram } from './Icons';
-
-const socialLinks = [
-    { icon: Linkedin, href: '#' },
-    { icon: GitHub, href: '#' },
-    { icon: Instagram, href: '#' },
-];
+import { socialLinks } from '../constants';
 
 const Footer: React.FC = () => {
     return (
