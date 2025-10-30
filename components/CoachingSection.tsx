@@ -91,7 +91,7 @@ const CoachingSection: React.FC = () => {
                         <h3 className="text-2xl font-bold mb-3">1-on-1 Coaching</h3>
                         <p className="text-gray-300 mb-6 flex-grow">Get dedicated, personalized guidance to accelerate your career growth.</p>
                         <a 
-                            href="#"
+                            href="#contact"
                             className="bg-indigo-500 text-white font-semibold py-3 px-8 rounded-full hover:bg-indigo-600 transition-all duration-300 transform hover:scale-105 w-full"
                         >
                             Book a Discovery Call
