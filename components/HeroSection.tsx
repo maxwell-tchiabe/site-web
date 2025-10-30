@@ -37,6 +37,17 @@ const imageVariants: Variants = {
     visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" }}
 }
 
+const imageFloatingVariants: Variants = {
+    animate: {
+        y: [0, -8, 0],
+        transition: {
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+        },
+    },
+};
+
 // FIX: Add Variants return type annotation to fix type error for 'ease' property.
 const floatingVariants = (delay = 0): Variants => ({
     initial: { y: 0 },
@@ -129,7 +140,8 @@ const HeroSection: React.FC = () => {
 
                         <motion.div 
                             className="relative w-full h-full z-10"
-                            variants={imageVariants}
+                            variants={{...imageVariants, ...imageFloatingVariants}}
+                            animate="animate"
                         >
                             <img 
                                 src="../assets/Tchiabe Ngouabe_Loic Maxwell.png"

@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
             <div className="container mx-auto px-6 lg:px-8 py-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
                     <div className="text-sm">
-                        &copy; {new Date().getFullYear()} MedMe. All rights reserved.
+                        &copy; {new Date().getFullYear()} Maxwell TB Tech. All rights reserved.
                     </div>
 
                     <div className="flex items-center gap-5">

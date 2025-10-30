@@ -1,5 +1,6 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useRef } from 'react';
 import { motion, Variants } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { socialLinks } from '../constants';
 
 const containerVariants: Variants = {
@@ -32,6 +33,7 @@ interface FormErrors {
 }
 
 const ContactSection: React.FC = () => {
+    const form = useRef<HTMLFormElement>(null);
     const [formData, setFormData] = useState<FormState>({
         name: '',
         email: '',
@@ -72,18 +74,30 @@ const ContactSection: React.FC = () => {
 
         setIsSubmitting(true);
         setSubmitMessage('');
-        
-        // Simulate API call
-        try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            console.log('Form submitted:', formData);
-            setSubmitMessage('Thank you for your message! I will get back to you soon.');
-            setFormData({ name: '', email: '', message: '' });
-            setErrors({});
-        } catch (error) {
-            setSubmitMessage('Something went wrong. Please try again later.');
-        } finally {
+
+        const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        if (!serviceID || !templateID || !publicKey) {
+            setSubmitMessage('EmailJS credentials are not set in the environment variables.');
             setIsSubmitting(false);
+            return;
+        }
+
+        if (form.current) {
+            emailjs.sendForm(serviceID, templateID, form.current, publicKey)
+                .then(() => {
+                    setSubmitMessage('Thank you for your message! I will get back to you soon.');
+                    setFormData({ name: '', email: '', message: '' });
+                    setErrors({});
+                }, (error) => {
+                    console.log(error.text);
+                    setSubmitMessage('Something went wrong. Please try again later.');
+                })
+                .finally(() => {
+                    setIsSubmitting(false);
+                });
         }
     };
 
@@ -141,7 +155,8 @@ const ContactSection: React.FC = () => {
 
                         {/* Right Side: Form */}
                         <div className="p-8 md:p-12">
-                            <motion.form 
+                            <motion.form
+                                ref={form}
                                 className="space-y-6"
                                 variants={containerVariants}
                                 onSubmit={handleSubmit}
