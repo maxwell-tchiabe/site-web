@@ -53,7 +53,7 @@ const floatingVariants = (delay = 0): Variants => ({
 
 
 const ServiceCard: React.FC = () => (
-     <motion.div variants={{...itemVariants, ...floatingVariants(0.8)}} className="absolute top-1/2 -translate-y-1/2 -left-8 md:-left-12 w-48">
+     <motion.div variants={{...itemVariants, ...floatingVariants(0.8)}} className="absolute mt-20 md:1 top-1/2 -translate-y-1/2 -left-8 md:-left-12 w-48">
         <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-lg flex items-center gap-3">
             <div className="bg-indigo-100 p-2 rounded-full">
                 <Phone className="w-5 h-5 text-indigo-600" />
@@ -66,12 +66,12 @@ const ServiceCard: React.FC = () => (
     </motion.div>
 );
 
- const scrollToSection = (id: string) => {
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+};
 
 const HeroSection: React.FC = () => {
     return (
@@ -97,10 +97,10 @@ const HeroSection: React.FC = () => {
                         <motion.p variants={itemVariants} className="mt-6 text-base sm:text-lg text-white/80 max-w-lg mx-auto lg:mx-0">
                             I build modern, responsive, and high-performance web, mobile and AI applications. Let's turn your ideas into reality.                        </motion.p>
                         <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <button onClick={() => scrollToSection("projects")} className="bg-transparent border-2 border-white/80 text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition-colors duration-300">
+                            <button onClick={() => scrollToSection("projects")} className="bg-transparent border-2 cursor-pointer border-white/80 text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition-colors duration-300">
                                 See My Work
                             </button>
-                            <button onClick={() => scrollToSection("contact")} className="bg-gray-900 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-300">
+                            <button onClick={() => scrollToSection("contact")} className="bg-gray-900 cursor-pointer text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 transition-colors duration-300">
                                 Get in Touch
                             </button>
                         </motion.div>

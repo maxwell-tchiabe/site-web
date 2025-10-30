@@ -107,6 +107,8 @@ const CoachingSection: React.FC = () => {
                         <p className="text-gray-600 mb-6 flex-grow">Access free resources, join discussions, and get weekly tips in my newsletter.</p>
                         <a 
                             href="https://maxwelltbtech.substack.com/embed"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="bg-gray-800 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 w-full"
                         >
                             Get Free Access

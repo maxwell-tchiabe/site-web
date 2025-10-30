@@ -1,11 +1,9 @@
 import React from 'react';
 // FIX: Add Variants to import from framer-motion to fix type errors.
 import { motion, Variants } from 'framer-motion';
+import { skills } from '../constants';
 
-const skills = [
-    "React", "TypeScript", "Node.js", "Next.js", "Tailwind CSS", 
-    "GraphQL", "PostgreSQL", "Docker", "Framer Motion", "UI/UX Design"
-];
+
 
 // FIX: Add Variants type annotation for type safety.
 const containerVariants: Variants = {
@@ -80,8 +78,9 @@ const AboutSection: React.FC = () => {
                         <img 
                             src="../assets/Tchiabe Ngouabe_Loic Maxwell_BF.png"
                             alt="Profile Avatar"
-                            className="relative object-cover w-full h-full rounded-full border-8 border-white shadow-2xl"
+                            className="relative object-cover object-[50%_10%] w-full h-full rounded-full border-8 border-white shadow-2xl"
                         />
+
                     </div>
                 </motion.div>
             </motion.div>

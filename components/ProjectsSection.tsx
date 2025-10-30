@@ -1,44 +1,7 @@
 import React, { useState } from 'react';
 // FIX: Add Variants to import from framer-motion to fix type errors.
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-
-const projectData = [
-    {
-        id: 1,
-        title: 'AI-Powered Health Platform',
-        description: 'A comprehensive platform connecting patients with doctors using AI for preliminary diagnostics and appointment scheduling.',
-        imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop',
-        link: '#',
-    },
-    {
-        id: 2,
-        title: 'Telemedicine Mobile App',
-        description: 'A cross-platform mobile app for virtual consultations, prescription management, and secure messaging between patients and healthcare providers.',
-        imageUrl: 'https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=800&auto=format&fit=crop',
-        link: '#',
-    },
-    {
-        id: 3,
-        title: 'Mental Wellness Dashboard',
-        description: 'An analytics dashboard for corporate clients to monitor team well-being and access mental health resources seamlessly.',
-        imageUrl: 'https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800&auto=format&fit=crop',
-        link: '#',
-    },
-    {
-        id: 4,
-        title: 'Healthcare CRM System',
-        description: 'A custom CRM for managing patient relationships, medical records, and billing, built for a large hospital network.',
-        imageUrl: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=800&auto=format&fit=crop',
-        link: '#',
-    },
-    {
-        id: 5,
-        title: 'E-commerce for Medical Supplies',
-        description: 'A full-featured e-commerce site for B2B medical supply distribution with inventory management and secure payments.',
-        imageUrl: 'https://images.unsplash.com/photo-1618932260643-4c72a4439761?q=80&w=800&auto=format&fit=crop',
-        link: '#',
-    }
-];
+import { projectData } from '../constants';
 
 // FIX: Add Variants type annotation for type safety.
 const containerVariants: Variants = {
@@ -70,10 +33,11 @@ const ProjectsSection: React.FC = () => {
     return (
         <section id="projects" className="bg-[#f0f4ff] py-20 sm:py-28">
             <motion.div 
+                key={visibleProjects}
                 className="container mx-auto px-6 lg:px-8 text-center"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
+                animate="visible"
                 variants={containerVariants}
             >
                 <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -96,7 +60,6 @@ const ProjectsSection: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className="block bg-white rounded-xl shadow-md overflow-hidden group transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2"
                                 variants={itemVariants}
-                                layout
                             >
                                 <div className="relative h-56">
                                     <img

@@ -6,6 +6,7 @@ import ProjectsSection from './components/ProjectsSection';
 import CoachingSection from './components/CoachingSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <CoachingSection />
       <ContactSection />
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };
