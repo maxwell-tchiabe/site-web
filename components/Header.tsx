@@ -82,7 +82,7 @@ const Header: React.FC = () => {
                             {navLinks.map((link) => (
                                 <button key={link.name} onClick={() => scrollToSection(link.href.substring(1))} className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors block text-center py-2 bg-transparent">{link.name}</button>
                             ))}
-                            <button onClick={() => scrollToSection('coaching')} className="sm:hidden bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm w-full">
+                            <button onClick={() => scrollToSection('coaching')} className="sm:hidden bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-sm w-40 mx-auto">
                                 Book a Discovery Call
                             </button>
                         </nav>
