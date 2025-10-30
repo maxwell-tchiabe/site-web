@@ -11,6 +11,7 @@ export interface Project {
   description: string;
   imageUrl: string;
   link: string;
+  comingSoon?: boolean;
 }
 
 export interface Skills {

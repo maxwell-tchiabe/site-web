@@ -53,27 +53,43 @@ const ProjectsSection: React.FC = () => {
                 >
                     <AnimatePresence>
                         {projectData.slice(0, visibleProjects).map((project) => (
-                            <motion.a
+                            <motion.div
                                 key={project.id}
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block bg-white rounded-xl shadow-md overflow-hidden group transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2"
+                                className={`relative bg-white rounded-xl shadow-md overflow-hidden group transform transition-all duration-300 ease-in-out ${
+                                    !project.comingSoon && 'hover:shadow-2xl hover:-translate-y-2'
+                                }`}
                                 variants={itemVariants}
                             >
-                                <div className="relative h-56">
-                                    <img
-                                        src={project.imageUrl}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 bg-black/20"></div>
-                                </div>
-                                <div className="p-6 text-left">
-                                    <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
-                                    <p className="text-gray-600 text-sm">{project.description}</p>
-                                </div>
-                            </motion.a>
+                                <a
+                                    href={project.comingSoon ? '#' : project.link}
+                                    target={project.comingSoon ? '_self' : '_blank'}
+                                    rel="noopener noreferrer"
+                                    className={`block ${project.comingSoon ? 'cursor-not-allowed' : ''}`}
+                                    onClick={(e) => project.comingSoon && e.preventDefault()}
+                                >
+                                    <div className="relative h-56">
+                                        <img
+                                            src={project.imageUrl}
+                                            alt={project.title}
+                                            className={`w-full h-full object-cover transition-transform duration-300 ${
+                                                !project.comingSoon && 'group-hover:scale-105'
+                                            } ${project.comingSoon ? 'filter grayscale' : ''}`}
+                                        />
+                                        <div className="absolute inset-0 bg-black/20"></div>
+                                        {project.comingSoon && (
+                                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                                                <span className="text-white text-lg font-bold bg-gray-800/70 px-4 py-2 rounded-md">
+                                                    Coming Soon
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="p-6 text-left">
+                                        <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
+                                        <p className="text-gray-600 text-sm">{project.description}</p>
+                                    </div>
+                                </a>
+                            </motion.div>
                         ))}
                     </AnimatePresence>
                 </motion.div>
