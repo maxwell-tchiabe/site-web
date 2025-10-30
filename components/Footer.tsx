@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                     </div>
 
                     <div className="text-sm">
-                        Made with ❤️ by <span className="font-semibold text-white">Your Name</span>
+                        Made with ❤️ by <span className="font-semibold text-white">Maxwell Tchiabe</span>
                     </div>
                 </div>
             </div>
