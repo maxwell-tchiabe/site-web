@@ -18,7 +18,7 @@ export const projectData: Project[] = [
         id: 1,
         title: 'AI companion system',
         description: 'An advanced AI companion system built with Python and Next.js that provides interactive learning, conversation, and personalized assistance. The platform uses a sophisticated graph-based memory system and multiple AI modules to create an engaging and adaptive user experience.',
-        imageUrl: './public/assets/Projet_1_SparringPartner.png',
+        imageUrl: './assets/Projet_1_SparringPartner.png',
         link: 'https://github.com/maxwell-tchiabe/sparring-Partner',
     },
     {
