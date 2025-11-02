@@ -1,6 +1,7 @@
 
 import type { SocialLink, Project } from './types';
 import { Youtube, Linkedin, GitHub } from './components/Icons';
+import SparringPartnerImage from './assets/Projet_1_SparringPartner.png';
 
 export const skills: string[] = [
     "Java","Spring Boot", "Python", "JavaScript", "HTML", "CSS", "Angular", "React", "TypeScript", "Node.js", "Next.js", "Tailwind CSS", 
@@ -18,7 +19,7 @@ export const projectData: Project[] = [
         id: 1,
         title: 'AI companion system',
         description: 'An advanced AI companion system built with Python and Next.js that provides interactive learning, conversation, and personalized assistance. The platform uses a sophisticated graph-based memory system and multiple AI modules to create an engaging and adaptive user experience.',
-        imageUrl: '/assets/Projet_1_SparringPartner.png',
+        imageUrl: SparringPartnerImage,
         link: 'https://github.com/maxwell-tchiabe/sparring-Partner',
     },
     {

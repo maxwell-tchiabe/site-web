@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import { socialLinks } from '../constants';
 import { Phone, Play, Linkedin, Instagram, TwitterX, PhoneOff, MicOff, Share } from './Icons';
 import { s } from 'framer-motion/client';
+import MaxwellImage from '../assets/Tchiabe_Ngouabe_Loic_Maxwell.png';
 
 // Animation variants for Framer Motion
 // FIX: Add Variants type annotation for type safety.
@@ -144,7 +145,7 @@ const HeroSection: React.FC = () => {
                             animate="animate"
                         >
                             <img 
-                                src="../assets/Tchiabe_Ngouabe_Loic Maxwell.png"
+                                src={MaxwellImage}
                                 alt="Smiling maxwell tchiabe"
                                 className="absolute bottom-0 left-1/2 -translate-x-1/2 object-contain object-bottom h-full w-auto max-w-none" 
                             />
