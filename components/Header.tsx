@@ -30,7 +30,7 @@ const Header: React.FC = () => {
                     className="flex items-center gap-2">
                     <div className="w-10 h-10 text-white p-2 rounded-full">
                         <img 
-                                src="../assets/CodeTechFree original.png"
+                                src="../assets/CodeTechFree_original.png"
                                 alt="Smiling Maxwell Tchiabe"
                             />
                     </div>

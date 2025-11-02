@@ -76,7 +76,7 @@ const AboutSection: React.FC = () => {
                     <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                         <div className="absolute inset-0 bg-gradient-to-br from-[#7C87F7] to-[#4E58C7] rounded-full transform -rotate-12"></div>
                         <img 
-                            src="../assets/Tchiabe Ngouabe_Loic Maxwell_BF.png"
+                            src="../assets/Tchiabe_Ngouabe_Loic Maxwell_BF.png"
                             alt="Profile Avatar"
                             className="relative object-cover object-[50%_10%] w-full h-full rounded-full border-8 border-white shadow-2xl"
                         />

@@ -144,7 +144,7 @@ const HeroSection: React.FC = () => {
                             animate="animate"
                         >
                             <img 
-                                src="../assets/Tchiabe Ngouabe_Loic Maxwell.png"
+                                src="../assets/Tchiabe_Ngouabe_Loic Maxwell.png"
                                 alt="Smiling maxwell tchiabe"
                                 className="absolute bottom-0 left-1/2 -translate-x-1/2 object-contain object-bottom h-full w-auto max-w-none" 
                             />
