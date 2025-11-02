@@ -17,3 +17,16 @@ export interface Project {
 export interface Skills {
   skills: string[];
 }
+
+export interface FormState {
+    name: string;
+    email: string;
+    message: string;
+}
+
+export interface FormErrors {
+    name?: string;
+    email?: string;
+    message?: string;
+}
+

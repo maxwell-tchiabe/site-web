@@ -2,6 +2,7 @@ import React, { useState, FormEvent, useRef } from 'react';
 import { motion, Variants } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { socialLinks } from '../constants';
+import { FormState, FormErrors } from '../types';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -19,18 +20,6 @@ const itemVariants: Variants = {
         transition: { duration: 0.6, ease: "easeOut" },
     },
 };
-
-interface FormState {
-    name: string;
-    email: string;
-    message: string;
-}
-
-interface FormErrors {
-    name?: string;
-    email?: string;
-    message?: string;
-}
 
 const ContactSection: React.FC = () => {
     const form = useRef<HTMLFormElement>(null);
@@ -181,7 +170,7 @@ const ContactSection: React.FC = () => {
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="bg-indigo-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-indigo-700 transition-all duration-300 shadow-lg hover:shadow-indigo-500/50 w-full disabled:bg-indigo-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                        className="bg-indigo-600 text-white cursor-pointer font-semibold py-3 px-8 rounded-full hover:bg-indigo-700 transition-all duration-300 shadow-lg hover:shadow-indigo-500/50 w-full disabled:bg-indigo-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                     >
                                         {isSubmitting ? (
                                             <>
