@@ -28,7 +28,7 @@ const itemVariants: Variants = {
 const AboutSection: React.FC = () => {
     return (
         <section id="about" className="bg-white py-20 sm:py-28">
-            <motion.div 
+            <motion.div
                 className="container mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
                 initial="hidden"
                 whileInView="visible"
@@ -41,22 +41,22 @@ const AboutSection: React.FC = () => {
                         About Me
                     </motion.h2>
                     <motion.p variants={itemVariants} className="text-gray-600 leading-relaxed mb-4">
-                        As a passionate full-stack developer, I thrive on turning complex problems into elegant, user-centric digital experiences. My journey in tech is driven by a mission to build software that is not only functional and scalable but also a joy to use.
+                        As a DevOps, Cloud, and Fullstack enthusiast, I am deeply committed to the DevSecOps philosophy—integrating security and efficiency at every stage of the development lifecycle. I specialize in building resilient, automated infrastructures and user-centric full-stack applications that empower teams and users alike.
                     </motion.p>
                     <motion.p variants={itemVariants} className="text-gray-600 leading-relaxed mb-8">
-                        My core values are rooted in continuous learning, collaboration, and a commitment to quality. I believe the best products are born from a deep understanding of user needs and a transparent, iterative development process.
+                        My expertise lies in orchestrating complex cloud-native environments, implementing robust CI/CD pipelines, and developing scalable end-to-end solutions. I believe that true innovation happens when development, security, and operations work in perfect harmony to create secure and high-performance digital experiences.
                     </motion.p>
 
                     <motion.h3 variants={itemVariants} className="text-2xl font-semibold text-gray-800 mb-5">
                         Key Skills
                     </motion.h3>
-                    <motion.div 
+                    <motion.div
                         className="flex flex-wrap gap-3 justify-center lg:justify-start"
                         variants={containerVariants} // Re-using container for staggering children
                     >
                         {skills.map(skill => (
-                            <motion.span 
-                                key={skill} 
+                            <motion.span
+                                key={skill}
                                 className="bg-indigo-100 text-indigo-700 font-medium text-sm px-4 py-2 rounded-full"
                                 variants={itemVariants}
                             >
@@ -67,7 +67,7 @@ const AboutSection: React.FC = () => {
                 </div>
 
                 {/* Right Side: Image */}
-                <motion.div 
+                <motion.div
                     className="flex justify-center"
                     variants={{
                         hidden: { opacity: 0, scale: 0.8 },
@@ -76,7 +76,7 @@ const AboutSection: React.FC = () => {
                 >
                     <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                         <div className="absolute inset-0 bg-gradient-to-br from-[#7C87F7] to-[#4E58C7] rounded-full transform -rotate-12"></div>
-                        <img 
+                        <img
                             src={ProfileAvatar}
                             alt="Profile Avatar"
                             className="relative object-cover object-[50%_10%] w-full h-full rounded-full border-8 border-white shadow-2xl"

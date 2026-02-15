@@ -9,33 +9,33 @@ import MaxwellImage from '../assets/Tchiabe_Ngouabe_Loic_Maxwell.png';
 // Animation variants for Framer Motion
 // FIX: Add Variants type annotation for type safety.
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+        },
     },
-  },
 };
 
 // FIX: Add Variants type annotation to fix type error for 'ease' property.
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: "easeOut",
+        },
     },
-  },
 };
 
 // FIX: Add Variants type annotation to fix type error for 'ease' property.
 const imageVariants: Variants = {
     hidden: { opacity: 0, x: 50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" }}
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
 }
 
 const imageFloatingVariants: Variants = {
@@ -65,7 +65,7 @@ const floatingVariants = (delay = 0): Variants => ({
 
 
 const ServiceCard: React.FC = () => (
-     <motion.div variants={{...itemVariants, ...floatingVariants(0.8)}} className="absolute mt-20 md:1 top-1/2 -translate-y-1/2 -left-8 md:-left-12 w-48">
+    <motion.div variants={{ ...itemVariants, ...floatingVariants(0.8) }} className="absolute mt-20 md:1 top-1/2 -translate-y-1/2 -left-8 md:-left-12 w-48">
         <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-lg flex items-center gap-3">
             <div className="bg-indigo-100 p-2 rounded-full">
                 <Phone className="w-5 h-5 text-indigo-600" />
@@ -91,8 +91,8 @@ const HeroSection: React.FC = () => {
             <div className="relative bg-gradient-to-br from-[#7C87F7] to-[#4E58C7] rounded-3xl lg:rounded-[50px] p-6 sm:p-10 lg:p-16 overflow-hidden">
                 {/* Grid background */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,theme(colors.white/0.05)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.white/0.05)_1px,transparent_1px)] bg-[size:40px_40px] opacity-50"></div>
-                
-                <motion.div 
+
+                <motion.div
                     className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
                     variants={containerVariants}
                     initial="hidden"
@@ -101,13 +101,14 @@ const HeroSection: React.FC = () => {
                     {/* Left Content */}
                     <div className="text-center lg:text-left">
                         <motion.div variants={itemVariants} className="inline-block bg-white/20 text-white text-xs font-semibold py-1.5 px-4 rounded-full mb-4">
-                            #1 AI & Fullstack development:Build the Future
+                            DevOps, DevSecOps & Fullstack Development
                         </motion.div>
                         <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
-                            Loic Maxwell Tchiabe 
+                            Loic Maxwell Tchiabe
                         </motion.h1>
                         <motion.p variants={itemVariants} className="mt-6 text-base sm:text-lg text-white/80 max-w-lg mx-auto lg:mx-0">
-                            I build modern, responsive, and high-performance web, mobile and AI applications. Let's turn your ideas into reality.                        </motion.p>
+                            I build secure, scalable, and high-performance cloud-native solutions and full-stack applications. Let's automate and innovate together.
+                        </motion.p>
                         <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <button onClick={() => scrollToSection("projects")} className="bg-transparent border-2 cursor-pointer border-white/80 text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition-colors duration-300">
                                 See My Work
@@ -120,37 +121,37 @@ const HeroSection: React.FC = () => {
 
                     {/* Right Content - maxwell Image and floating cards */}
                     <div className="relative h-[450px] sm:h-[550px] lg:h-full flex items-end justify-center">
-                        <motion.div 
+                        <motion.div
                             className="absolute top-4 right-1 flex gap-2 z-20"
                             variants={itemVariants}
                         >
                             {socialLinks.map((social, index) => (
-                                <motion.a 
-                                    key={index} 
-                                    href={social.href} 
-                                    target="_blank" 
+                                <motion.a
+                                    key={index}
+                                    href={social.href}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     whileHover={{ scale: 1.2, y: -3 }}
                                     className="bg-white/20 p-2.5 rounded-full text-white hover:bg-white/30"
-                                    transition={{type: "spring", stiffness: 300}}
+                                    transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     <social.icon className="w-5 h-5" />
                                 </motion.a>
                             ))}
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             className="relative w-full h-full z-10"
-                            variants={{...imageVariants, ...imageFloatingVariants}}
+                            variants={{ ...imageVariants, ...imageFloatingVariants }}
                             animate="animate"
                         >
-                            <img 
+                            <img
                                 src={MaxwellImage}
                                 alt="Smiling maxwell tchiabe"
-                                className="absolute bottom-0 left-1/2 -translate-x-1/2 object-contain object-bottom h-full w-auto max-w-none" 
+                                className="absolute bottom-0 left-1/2 -translate-x-1/2 object-contain object-bottom h-full w-auto max-w-none"
                             />
-                             {/* Floating Cards relative to the doctor image */}
-                            <ServiceCard/>
+                            {/* Floating Cards relative to the doctor image */}
+                            <ServiceCard />
                         </motion.div>
                     </div>
                 </motion.div>

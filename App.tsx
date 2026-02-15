@@ -11,8 +11,8 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 const App: React.FC = () => {
   return (
     <div className="min-h-screen w-full bg-[#f0f4ff] text-gray-800 overflow-x-hidden">
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-        <Header />
+      <Header />
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-4 sm:pb-6">
         <HeroSection />
       </main>
       <AboutSection />
