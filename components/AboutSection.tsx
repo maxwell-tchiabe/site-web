@@ -2,7 +2,7 @@ import React from 'react';
 // FIX: Add Variants to import from framer-motion to fix type errors.
 import { motion, Variants } from 'framer-motion';
 import { skills } from '../constants';
-import ProfileAvatar from '../assets/Tchiabe_Ngouabe_Loic_Maxwell_BF.png';
+import ProfileAvatar from '../assets/Berater_bf.png';
 
 
 
