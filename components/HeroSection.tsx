@@ -4,7 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import { socialLinks } from '../constants';
 import { Phone, Play, Linkedin, Instagram, TwitterX, PhoneOff, MicOff, Share } from './Icons';
 import { s } from 'framer-motion/client';
-import MaxwellImage from '../assets/Berater_bf.png';
+import MaxwellImage from '../assets/Berater_bf_pro_for_webseite.png';
 
 // Animation variants for Framer Motion
 // FIX: Add Variants type annotation for type safety.
